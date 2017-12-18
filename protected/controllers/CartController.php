@@ -42,6 +42,18 @@ class CartController extends Controller {
         );
     }
 
+    /**
+     * Empty the cart.
+     */
+    public function actionEmpty() {
+        $cart = new ShoppingCart;
+        $cart->emptyCart();
+        $this->render('index', array(
+                'cart' => $cart
+            )
+        );
+    }
+
     // -----------------------------------------------------------
     // Uncomment the following methods and override them if needed
     /*

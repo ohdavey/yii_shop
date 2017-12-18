@@ -184,7 +184,9 @@ class ShoppingCart {
      * Empty Cart
      */
     public function emptyCart() {
-        unset($_SESSION['CartForm']);
+        if (isset($_SESSION['CartForm'])) {
+            unset($_SESSION['CartForm']);
+        }
         return;
     }
 }

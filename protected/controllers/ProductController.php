@@ -96,14 +96,6 @@ class ProductController extends Controller {
         }
     }
 
-    /**
-     * Empty the cart.
-     */
-    public function actionEmpty() {
-        $cart = new CartForm;
-        $cart->emptyCart();
-    }
-
 
     /**
      * Creates a new model.

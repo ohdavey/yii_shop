@@ -88,7 +88,9 @@ $this->breadcrumbs = array(
             <td></td>
             <td>
                 <a href="<?php echo CHtml::normalizeUrl(array('product/index'));
-                ?>">Continue Shopping</a>
+                ?>">Continue Shopping</a> |
+                <a href="<?php echo CHtml::normalizeUrl(array('cart/empty'));
+                ?>">Empty Cart</a>
             </td>
             <td>
                 <a href="<?php echo CHtml::normalizeUrl(array('cart/checkout'));
