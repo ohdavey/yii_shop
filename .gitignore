@@ -3,5 +3,6 @@ assets/*
 protected/runtime/*
 !protected/runtime/.gitignore
 protected/data/*.db
+protected/config/database.php
 .idea/
 themes/classic/views/
