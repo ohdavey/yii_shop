@@ -16,6 +16,20 @@
                 'htmlOptions' => array('class' => 'operations'),
             ));
             $this->endWidget();
+
+            $this->beginWidget('zii.widgets.CPortlet', array(
+                'title' => 'Admin Menu',
+            ));
+            $this->widget('zii.widgets.CMenu', array(
+                'items' => array(
+                    array('label' => 'Inventory', 'url' => array('inventory/admin')),
+                    array('label' => 'Orders', 'url' => array('order/admin')),
+                    array('label' => 'Vendors', 'url' => array('vendor/admin')),
+                    array('label' => 'Vendors', 'url' => array('product/admin')),
+                ),
+                'htmlOptions' => array('class' => 'operations'),
+            ));
+            $this->endWidget();
             ?>
         </div><!-- sidebar -->
     </div>
