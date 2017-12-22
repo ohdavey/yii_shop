@@ -3,7 +3,7 @@
 /* @var $model ProductCategory */
 
 $this->breadcrumbs=array(
-	'Product Categories'=>array('index'),
+	'Product Categories'=>array('admin'),
 	$model->name=>array('view','id'=>$model->id),
 	'Update',
 );

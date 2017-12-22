@@ -47,8 +47,8 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'department_id',
-		'category_id',
-		'vendor_id',
+		'category.name',
+		'vendor.name',
 		'title',
 		'price',
 		array(

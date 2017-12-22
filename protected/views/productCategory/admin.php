@@ -3,7 +3,7 @@
 /* @var $model ProductCategory */
 
 $this->breadcrumbs=array(
-	'Product Categories'=>array('index'),
+	'Product Categories'=>array('admin'),
 	'Manage',
 );
 
@@ -47,8 +47,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'columns'=>array(
 		'id',
 		'name',
+		'productCount',
 		array(
 			'class'=>'CButtonColumn',
 		),
 	),
-)); ?>
+));
+
+?>

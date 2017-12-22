@@ -3,7 +3,7 @@
 /* @var $model ProductCategory */
 
 $this->breadcrumbs=array(
-	'Product Categories'=>array('index'),
+	'Product Categories'=>array('admin'),
 	$model->name,
 );
 
@@ -23,5 +23,32 @@ $this->menu=array(
 	'attributes'=>array(
 		'id',
 		'name',
+        'productCount'
 	),
-)); ?>
+
+));
+
+?>
+<hr>
+<div class="products">
+    <table class="detail-view">
+        <thead>
+            <th align="left">Id</th>
+            <th>Title</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <?php $i; ?>
+        <?php foreach ($model->products as $product): ?>
+            <?php $i++; ?>
+            <tr class="<?php echo $i % 2 ? 'odd' : 'even'; ?>">
+                <td><?php echo $product->id; ?></td>
+
+                <td>
+                    <?php echo $product->title; ?>
+                </td>
+                <td><?php echo money_format('$%i', $product->price); ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
+</div>

@@ -25,7 +25,8 @@
                     array('label' => 'Inventory', 'url' => array('inventory/admin')),
                     array('label' => 'Orders', 'url' => array('order/admin')),
                     array('label' => 'Vendors', 'url' => array('vendor/admin')),
-                    array('label' => 'Vendors', 'url' => array('product/admin')),
+                    array('label' => 'Product', 'url' => array('product/admin')),
+                    array('label' => 'Departmens', 'url' => array('productCategory/admin')),
                 ),
                 'htmlOptions' => array('class' => 'operations'),
             ));

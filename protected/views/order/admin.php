@@ -1,6 +1,6 @@
 <?php
 $this->breadcrumbs=array(
-	'Orders'=>array('index'),
+	'Orders'=>array('admin'),
 	'Manage',
 );
 
@@ -45,7 +45,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'employee_id',
 		'customer_name',
-		'title',
+		'zipcode',
 		'qty',
 		'total',
 		/*
