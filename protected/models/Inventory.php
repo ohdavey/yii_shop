@@ -10,6 +10,8 @@
  * @property integer $updated
  */
 class Inventory extends CActiveRecord {
+
+    public $product_search;
     /**
      * @return string the associated database table name
      */
@@ -28,7 +30,7 @@ class Inventory extends CActiveRecord {
             array('product_id, qty, updated', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, product_id, qty, updated', 'safe', 'on' => 'search'),
+            array('id, product_search, qty, updated', 'safe', 'on' => 'search'),
         );
     }
 
@@ -38,7 +40,9 @@ class Inventory extends CActiveRecord {
     public function relations() {
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
-        return array();
+        return array(
+            'product' => array(self::BELONGS_TO, 'Product', 'product_id'),
+        );
     }
 
     /**
@@ -71,12 +75,21 @@ class Inventory extends CActiveRecord {
         $criteria = new CDbCriteria;
 
         $criteria->compare('id', $this->id);
-        $criteria->compare('product_id', $this->product_id);
+        $criteria->with = array('product');
+        $criteria->compare('product.title', $this->product_search, true, 'OR');
         $criteria->compare('qty', $this->qty);
         $criteria->compare('updated', $this->updated);
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
+            'sort'=>array(
+                'attributes'=>array(
+                    'product_search'=>array(
+                        'asc'=>'product.title',
+                        'desc'=>'product.title DESC',
+                    ),
+                ),
+            ),
         ));
     }
 
