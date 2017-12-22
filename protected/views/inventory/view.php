@@ -8,8 +8,6 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List Inventory', 'url'=>array('index')),
-	array('label'=>'Create Inventory', 'url'=>array('create')),
 	array('label'=>'Update Inventory', 'url'=>array('update', 'id'=>$model->id)),
 	array('label'=>'Delete Inventory', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
 	array('label'=>'Manage Inventory', 'url'=>array('admin')),
@@ -22,8 +20,13 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'product_id',
+        array(               // related city displayed as a link
+            'label'=>'Product',
+            'type'=>'raw',
+            'value'=>CHtml::link(CHtml::encode($model->product->title),
+                array('product/view','id'=>$model->product->id)),
+        ),
 		'qty',
-		'updated',
+        'updated',
 	),
 )); ?>

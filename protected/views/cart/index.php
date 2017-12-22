@@ -45,7 +45,7 @@ $this->breadcrumbs = array(
                 <td><?php echo money_format('$%i', $item['product']['price']); ?></td>
                 <td><?php echo money_format('$%i', ($item['product']['price'] * $item['qty'])); ?></td>
                 <td>
-                    <a href="<?php echo CHtml::normalizeUrl(array('cart/remove', 'product' => $item['product']['id'])); ?>">X</a
+                    <a href="<?php echo CHtml::normalizeUrl(array('cart/remove', 'product' => $item['product']['id'])); ?>">X</a>
                 </td>
             </tr>
         <?php endforeach; ?>

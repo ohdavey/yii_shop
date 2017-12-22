@@ -2,14 +2,9 @@
 /* @var $this InventoryController */
 /* @var $model Inventory */
 
-$this->breadcrumbs=array(
-	'Inventories'=>array('index'),
-	'Manage',
-);
-
-$this->menu=array(
-	array('label'=>'List Inventory', 'url'=>array('index')),
-	array('label'=>'Create Inventory', 'url'=>array('create')),
+$this->breadcrumbs = array(
+    'Inventories' => array('index'),
+    'Manage',
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -29,28 +24,33 @@ $('.search-form form').submit(function(){
 <h1>Manage Inventories</h1>
 
 <p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
+    You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>,
+    <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
+    or <b>=</b>) at the beginning of each of your search values to specify how
+    the comparison should be done.
 </p>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php echo CHtml::link('Advanced Search', '#', array('class' => 'search-button')); ?>
 <div class="search-form" style="display:none">
-<?php $this->renderPartial('_search',array(
-	'model'=>$model,
-)); ?>
+    <?php $this->renderPartial('_search', array(
+        'model' => $model,
+    )); ?>
 </div><!-- search-form -->
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'inventory-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'id',
-		'product_id',
-		'qty',
-		'updated',
-		array(
-			'class'=>'CButtonColumn',
-		),
-	),
+    'id' => 'inventory-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        array(
+            'name' => 'product_search',
+            'value' => '$data->product->title',
+            'filter' => CHtml::activeTextField($model, 'product_search'),
+        ),
+        'qty',
+        'updated',
+        array(
+            'class' => 'CButtonColumn',
+        ),
+    ),
 )); ?>

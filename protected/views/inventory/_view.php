@@ -10,7 +10,7 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('product_id')); ?>:</b>
-	<?php echo CHtml::encode($data->product_id); ?>
+	<?php echo CHtml::encode($data->product->title); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('qty')); ?>:</b>
