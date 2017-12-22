@@ -12,6 +12,7 @@
 class Inventory extends CActiveRecord {
 
     public $product_search;
+
     /**
      * @return string the associated database table name
      */
@@ -82,11 +83,11 @@ class Inventory extends CActiveRecord {
 
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
-            'sort'=>array(
-                'attributes'=>array(
-                    'product_search'=>array(
-                        'asc'=>'product.title',
-                        'desc'=>'product.title DESC',
+            'sort' => array(
+                'attributes' => array(
+                    'product_search' => array(
+                        'asc' => 'product.title',
+                        'desc' => 'product.title DESC',
                     ),
                 ),
             ),
@@ -101,6 +102,17 @@ class Inventory extends CActiveRecord {
      */
     public static function model($className = __CLASS__) {
         return parent::model($className);
+    }
+
+
+    /**
+     * Reformat the way date is is displayed.
+     */
+    protected function afterFind() {
+        // convert to display format
+        $this->updated = date("m-d-Y h:m a", $this->updated);
+
+        parent::afterFind();
     }
 
     /**
