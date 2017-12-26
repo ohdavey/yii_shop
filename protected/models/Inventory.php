@@ -31,7 +31,7 @@ class Inventory extends CActiveRecord {
             array('product_id, qty, updated', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-            array('id, product_search, qty, updated', 'safe', 'on' => 'search'),
+            array('id, product_search', 'safe', 'on' => 'search'),
         );
     }
 
@@ -108,11 +108,20 @@ class Inventory extends CActiveRecord {
     /**
      * Reformat the way date is is displayed.
      */
-    protected function afterFind() {
-        // convert to display format
-        $this->updated = date("m-d-Y h:m a", $this->updated);
+//    protected function afterFind() {
+//        // convert to display format
+//        $this->updated = date("m-d-Y h:m a", $this->updated);
+//
+//        parent::afterFind();
+//    }
 
-        parent::afterFind();
+    /**
+     * Reformat the way date is is displayed.
+     */
+    public function beforeSave() {
+        $this->updated =  time();
+
+        return parent::beforeSave();
     }
 
     /**

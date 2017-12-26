@@ -48,7 +48,10 @@ $('.search-form form').submit(function(){
             'filter' => CHtml::activeTextField($model, 'product_search'),
         ),
         'qty',
-        'updated',
+        array(
+            'name' => 'updated',
+            'value' => 'date("F d, Y", $data->updated)'
+        ),
         array(
             'class' => 'CButtonColumn',
         ),
