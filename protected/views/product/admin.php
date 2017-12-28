@@ -46,7 +46,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'department_id',
+		'department.name',
 		'category.name',
 		'vendor.name',
 		'title',

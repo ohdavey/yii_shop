@@ -4,7 +4,7 @@ class OrderController extends Controller {
     /**
      * Default view for DlMachine is Admin View, Index does not exist
      */
-    public $defaultAction = 'view';
+    public $defaultAction = 'admin';
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -53,9 +53,9 @@ class OrderController extends Controller {
     /**
      * Displays a particular model.
      */
-    public function actionView() {
+    public function actionView($id) {
         $this->render('view', array(
-            'model' => $this->loadModel(),
+            'model' => $this->loadModel($id),
         ));
     }
 

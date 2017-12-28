@@ -52,7 +52,13 @@ class Order extends CActiveRecord
         // NOTE: you may need to adjust the relation name and the related
         // class name for the relations automatically generated below.
         return array(
-            'employee' => array(self::BELONGS_TO, 'Employee', 'employee_id'),
+            'employee' => array(
+                self::BELONGS_TO, 'Employee', 'employee_id'
+            ),
+
+            'items' => array(
+                self::HAS_MANY, 'LineItem', 'order_id',
+            ),
         );
 	}
 
