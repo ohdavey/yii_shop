@@ -157,7 +157,11 @@ class ProductController extends Controller {
      * Lists all models.
      */
     public function actionIndex() {
-        $dataProvider = new CActiveDataProvider('Product');
+        $dataProvider = new CActiveDataProvider('Product', array(
+            'pagination'=>array(
+                'pageSize'=>20,
+            ),
+        ));
         $this->render('index', array(
             'dataProvider' => $dataProvider,
             'CartForm' => !isset($_SESSION['CartForm']) ? array() : $_SESSION['CartForm'],
